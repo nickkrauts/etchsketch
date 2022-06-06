@@ -16,9 +16,9 @@ for (let i = 0; i < gridLength; i++){
         newDiv.appendChild(newRow).classList.add('row')
        
     }
+}draw();
 }
-}
-makeGrid(16);
+makeGrid(gridLength);
 //to clear the grid we need to clear all the divs labeled column
 
 function resetGrid(){
@@ -27,9 +27,13 @@ function resetGrid(){
     }
     //turn this prompt into a button eventually
     let newGridLength = prompt('what size grid?')
-    makeGrid(newGridLength)
+    gridLength = newGridLength
+    makeGrid(newGridLength);
+    draw();
+    return gridLength;
 }
 
+function draw(){
 //create an id of 'cell#n' on each cell
 for(let i = 1; i <=gridLength; i++){
     const gridCell = document.querySelectorAll('.column') 
@@ -37,7 +41,7 @@ for(let i = 1; i <=gridLength; i++){
   }
 
 //on mouseover change cell id to 'hovered'
-for(let i = 1; i <= 25; i++){ 
+for(let i = 1; i <= gridLength; i++){ 
     const cell = document.querySelector(`#cell${i}`) 
   cell.addEventListener("mouseover", function( event ) {
     // highlight the mouseover target
@@ -49,4 +53,4 @@ for(let i = 1; i <= 25; i++){
       //event.target.setAttribute('id',`cell${i}`);
     }, 5000);
   }, false);
-  }
+  }}
