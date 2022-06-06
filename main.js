@@ -1,4 +1,5 @@
 const gridContainer = document.querySelector('.container')
+let gridLength = 16;
 
 //generate a square grid with side lengths of gridLength
 function makeGrid(gridLength) {
@@ -17,7 +18,7 @@ for (let i = 0; i < gridLength; i++){
     }
 }
 }
-
+makeGrid(16);
 //to clear the grid we need to clear all the divs labeled column
 
 function resetGrid(){
@@ -28,3 +29,24 @@ function resetGrid(){
     let newGridLength = prompt('what size grid?')
     makeGrid(newGridLength)
 }
+
+//create an id of 'cell#n' on each cell
+for(let i = 1; i <=gridLength; i++){
+    const gridCell = document.querySelectorAll('.column') 
+    gridCell[i-1].setAttribute("id", `cell${i}`)
+  }
+
+//on mouseover change cell id to 'hovered'
+for(let i = 1; i <= 25; i++){ 
+    const cell = document.querySelector(`#cell${i}`) 
+  cell.addEventListener("mouseover", function( event ) {
+    // highlight the mouseover target
+    event.target.setAttribute('id','hovered');
+  
+    // reset the color after a short delay (make this customizedUX)
+    setTimeout(function() {
+      //uncomment line to bring back timeout  
+      //event.target.setAttribute('id',`cell${i}`);
+    }, 5000);
+  }, false);
+  }
