@@ -4,7 +4,7 @@ let gridLength = 16;
 //generate a square grid with side lengths of gridLength
 function makeGrid(gridLength) {
 
-//this loop creates the skelton for the grip
+//this loop creates the skelton for the grid
 for (let i = 0; i < gridLength; i++){
     const newDiv = document.createElement('div')
     gridContainer.appendChild(newDiv).classList.add('column')
